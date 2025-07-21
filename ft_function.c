@@ -6,7 +6,7 @@
 /*   By: mtran-nh <mtran-nh@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 15:20:00 by mtran-nh          #+#    #+#             */
-/*   Updated: 2025/07/21 19:50:26 by mtran-nh         ###   ########.fr       */
+/*   Updated: 2025/07/21 20:49:21 by mtran-nh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_putstr(char *s)
 	i = 0;
 	if (!s)
 		return (write(1, "(null)", 6));
-	while (s)
+	while (s[i])
 		i++;
 	if (write(1, s, i) == -1)
 		return (-1);

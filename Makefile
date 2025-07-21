@@ -6,11 +6,11 @@
 #    By: mtran-nh <mtran-nh@student.42heilbronn.de> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/17 15:10:20 by mtran-nh          #+#    #+#              #
-#    Updated: 2025/07/21 16:15:03 by mtran-nh         ###   ########.fr        #
+#    Updated: 2025/07/21 20:39:38 by mtran-nh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = ft_base.c ft_function.c
+SRC = ft_hex.c ft_function.c ft_printf.c
 
 OBJS = $(SRC:.c=.o)
 
