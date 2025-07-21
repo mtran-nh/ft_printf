@@ -6,7 +6,7 @@
 /*   By: mtran-nh <mtran-nh@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 17:27:43 by mtran-nh          #+#    #+#             */
-/*   Updated: 2025/07/21 20:44:48 by mtran-nh         ###   ########.fr       */
+/*   Updated: 2025/07/21 23:14:43 by mtran-nh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,12 @@ int	ft_format(char c, va_list args)
 int	ft_printf(const char *str, ...)
 {
 	int		i;
-	int	count;
+	int		count;
 	va_list	args;
 
 	count = 0;
 	i = 0;
-	va_start(args, str); 
+	va_start(args, str);
 	while (str[i])
 	{
 		if (str[i] == '%' && str[i + 1])
@@ -60,5 +60,3 @@ int	ft_printf(const char *str, ...)
 	va_end(args);
 	return (count);
 }
-
-

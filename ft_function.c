@@ -6,7 +6,7 @@
 /*   By: mtran-nh <mtran-nh@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 15:20:00 by mtran-nh          #+#    #+#             */
-/*   Updated: 2025/07/21 20:49:21 by mtran-nh         ###   ########.fr       */
+/*   Updated: 2025/07/21 23:04:35 by mtran-nh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,12 +64,7 @@ int	ft_putnbr_unsigned(unsigned int n)
 	ret = 0;
 	sum = 0;
 	if (n >= 10)
-	{
-		ret = ft_putnbr_unsigned(n / 10);
-		if (ret == -1)
-			return (-1);
-		sum += ret;
-	}
+		sum = ft_putnbr_unsigned(n / 10);
 	if (ft_putchar(n % 10 + '0'))
 		ret += 1;
 	if (!ret)
@@ -77,3 +72,10 @@ int	ft_putnbr_unsigned(unsigned int n)
 	sum += ret;
 	return (sum);
 }
+
+// int main()
+// {
+// 	printf("%d\n", ft_putnbr(123456));
+// 	ft_putnbr_unsigned(123456);
+// 	printf("\n%d", ft_putnbr_unsigned(123456));
+// }
