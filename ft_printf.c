@@ -6,7 +6,7 @@
 /*   By: mtran-nh <mtran-nh@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 17:27:43 by mtran-nh          #+#    #+#             */
-/*   Updated: 2025/07/21 23:14:43 by mtran-nh         ###   ########.fr       */
+/*   Updated: 2025/07/21 23:39:43 by mtran-nh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,8 @@ int	ft_printf(const char *str, ...)
 		}
 		else
 		{
-			ft_putchar(str[i]);
+			if (ft_putchar(str[i]) == -1)
+				return (-1);
 			count++;
 			i++;
 		}
