@@ -6,7 +6,7 @@
 /*   By: mtran-nh <mtran-nh@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 15:20:00 by mtran-nh          #+#    #+#             */
-/*   Updated: 2025/07/21 23:34:43 by mtran-nh         ###   ########.fr       */
+/*   Updated: 2025/07/22 20:01:00 by mtran-nh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,18 +42,22 @@ int	ft_putnbr(int n)
 	nb = n;
 	if (nb < 0)
 	{
+		if (ft_putchar('-') == -1)
+			return (-1);
 		nb *= -1;
-		ft_putchar('-');
-		ret += 1;
+		sum = 1;
 	}
 	if (nb >= 10)
-		sum = ft_putnbr(nb / 10);
-	if (ft_putchar(nb % 10 + '0'))
-		ret += 1;
-	if (!ret)
+	{
+		ret = (ft_putnbr(nb / 10));
+		if (ret == -1)
+			return (-1);
+		sum += ret;
+	}
+	ret = (ft_putchar(nb % 10 + '0'));
+	if (ret == -1)
 		return (-1);
-	sum += ret;
-	return (sum);
+	return (sum + ret);
 }
 
 int	ft_putnbr_unsigned(unsigned int n)
@@ -64,10 +68,14 @@ int	ft_putnbr_unsigned(unsigned int n)
 	ret = 0;
 	sum = 0;
 	if (n >= 10)
-		sum = ft_putnbr_unsigned(n / 10);
-	if (ft_putchar(n % 10 + '0'))
-		ret += 1;
-	if (!ret)
+	{
+		ret = ft_putnbr_unsigned(n / 10);
+		if (ret == -1)
+			return (-1);
+		sum += ret;
+	}
+	ret = (ft_putchar(n % 10 + '0'));
+	if (ret == -1)
 		return (-1);
 	sum += ret;
 	return (sum);

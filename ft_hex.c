@@ -6,7 +6,7 @@
 /*   By: mtran-nh <mtran-nh@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 19:52:21 by mtran-nh          #+#    #+#             */
-/*   Updated: 2025/07/21 23:14:13 by mtran-nh         ###   ########.fr       */
+/*   Updated: 2025/07/22 19:48:10 by mtran-nh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int	ft_puthex(unsigned long n)
 		sum += ret;
 	}
 	ret = (ft_putchar(hex[n % 16]));
-	if (!ret)
+	if (ret == -1)
 		return (-1);
 	sum += ret;
 	return (sum);
@@ -59,10 +59,14 @@ int	ft_puthex_lower(unsigned int n)
 	sum = 0;
 	hex = "0123456789abcdef";
 	if (n >= 16)
-		sum = (ft_puthex_lower(n / 16));
-	if (ft_putchar(hex[n % 16]))
-		ret += 1;
-	if (!ret)
+	{
+		ret = (ft_puthex_lower(n / 16));
+		if (ret == -1)
+			return (-1);
+		sum += ret;
+	}
+	ret = ft_putchar(hex[n % 16]);
+	if (ret == -1)
 		return (-1);
 	sum += ret;
 	return (sum);
@@ -78,10 +82,14 @@ int	ft_puthex_upper(unsigned int n)
 	sum = 0;
 	hex = "0123456789ABCDEF";
 	if (n >= 16)
-		sum = ft_puthex_upper(n / 16);
-	if (ft_putchar(hex[n % 16]))
-		ret += 1;
-	if (!ret)
+	{
+		ret = (ft_puthex_upper(n / 16));
+		if (ret == -1)
+			return (-1);
+		sum += ret;
+	}
+	ret = ft_putchar(hex[n % 16]);
+	if (ret == -1)
 		return (-1);
 	sum += ret;
 	return (sum);
