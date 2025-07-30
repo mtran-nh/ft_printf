@@ -6,11 +6,21 @@
 /*   By: mtran-nh <mtran-nh@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 19:52:21 by mtran-nh          #+#    #+#             */
-/*   Updated: 2025/07/22 19:48:10 by mtran-nh         ###   ########.fr       */
+/*   Updated: 2025/07/30 17:41:07 by mtran-nh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+static size_t	ft_strlen(const char *s)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
 
 static int	ft_puthex(unsigned long n)
 {
@@ -37,13 +47,21 @@ static int	ft_puthex(unsigned long n)
 
 int	ft_putptr(void *p)
 {
-	int	ret;
-	int	hex;
+	int				ret;
+	int				hex;
+	unsigned long	addr;
 
+	addr = (unsigned long)p;
+	if (addr == 0)
+	{
+		if (ft_putstr(NULL_PTR) == -1)
+			return (-1);
+		return (ft_strlen(NULL_PTR));
+	}
 	ret = write(1, "0x", 2);
 	if (ret == -1)
 		return (-1);
-	hex = ft_puthex((unsigned long)p);
+	hex = ft_puthex(addr);
 	if (hex == -1)
 		return (-1);
 	return (ret + hex);
